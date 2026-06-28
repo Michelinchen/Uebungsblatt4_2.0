@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="6/26/2026 8:10:57 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1031"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{E85CAD84-8DF4-4651-82DB-804CC01EC671}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{9BFAC56C-1567-4C63-A1F9-55F760B5938D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8PxCWwOYAkWFK0SvHbC4hwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADrPN8VO3vFg6hPgzYsrzeb76JOTO1UC1Pb6pPwIs2ZvQAAAAAOgAAAAAIAACAAAACYXXWqgJmC0U46FldrGHYgkIUdJsRVOFNfo+/d7ZDCgCAAAAC4GvYoTnvvU8JYFb5eOwfFrc//G7CqdQHfyE+ISvgCOkAAAAB9K0auWkC5WTnRD05gpwrfUf0yxBvCt2UVX4GUINq2Awmm7jhbuLPoeqNux7xlngfylTXHoLiGGtyn472Y9o5A</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8PxCWwOYAkWFK0SvHbC4hwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAg3pd2y1tJe+uGf+1t4kdhYF2WENZC2aNui03xuXAA7gAAAAAOgAAAAAIAACAAAABexdAIrAY6o97N/ft5vQzgrTH0YwC9Ml5cfOMQ5jvlIhAAAAArEOdYhMyt8LneOxfeLn0pQAAAAPOE/5DA4Ju3//QDGOUZ3z7Td3ZNugxQHwZKnSwsync1fvpE6eDE8FQPel9nQZJXjYQP8J3Oj2quvHZDI22JhWE</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -120,7 +120,7 @@
               SQLTask:SqlStatementSource="DECLARE @d DATE = ?;&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1&#xA;    FROM dbo.DimDate&#xA;    WHERE FullDate = @d&#xA;)&#xA;BEGIN&#xA;    INSERT INTO dbo.DimDate (&#xA;        DateKey,&#xA;        FullDate,&#xA;        Day,&#xA;        Month,&#xA;        MonthName,&#xA;        Quarter,&#xA;        Year,&#xA;        WeekOfYear,&#xA;        DayOfWeek&#xA;    )&#xA;    VALUES (&#xA;        CONVERT(INT, FORMAT(@d, 'yyyyMMdd')),&#xA;        @d,&#xA;        DAY(@d),&#xA;        MONTH(@d),&#xA;        DATENAME(MONTH, @d),&#xA;        DATEPART(QUARTER, @d),&#xA;        YEAR(@d),&#xA;        DATEPART(ISO_WEEK, @d),&#xA;        DATEPART(WEEKDAY, @d)&#xA;    );&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
-                SQLTask:DtsVariableName="System::CancelEvent"
+                SQLTask:DtsVariableName="User::CurrentDate"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="7"
                 SQLTask:ParameterSize="-1" />
