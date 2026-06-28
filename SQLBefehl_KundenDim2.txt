@@ -1,0 +1,22 @@
+erstelle vor der Ausführung eine DimCustomer Tabelle in deiner Datenbank mit folgendem Befehl 
+
+
+CREATE TABLE DimCustomer (
+    -- Surrogate Key (Primärschlüssel der Dimension)
+    CustomerKey             INT IDENTITY(1,1) PRIMARY KEY,
+
+    -- Business Keys (aus den Quellsystemen)
+    CustomerID_BK           INT NOT NULL,
+    CustomerType            NVARCHAR(10) NOT NULL,     -- 'Individual' oder 'Store'
+
+    -- Personendaten
+    StoreName			    NVARCHAR(50),
+    FirstName               NVARCHAR(50),
+    LastName                NVARCHAR(50),
+    BirthDate               DATE NULL,
+    MaritalStatus           CHAR(1) NULL,
+    YearlyIncome            NVARCHAR(50) NULL,
+    Gender                  CHAR(1) NULL,
+    TotalChildren           TINYINT NULL,
+
+);

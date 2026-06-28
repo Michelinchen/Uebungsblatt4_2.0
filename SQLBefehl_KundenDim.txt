@@ -1,4 +1,4 @@
-erstelle zuerst eine Staging_Individual Tabelle in deiner Datenbank mit folgendem Befehl 
+erstelle vor der Ausführung eine Staging_Individual Tabelle in deiner Datenbank mit folgendem Befehl 
 
 
 CREATE TABLE Staging_Individual (

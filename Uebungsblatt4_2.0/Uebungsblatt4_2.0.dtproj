@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-49ANF5G</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAWPWZBGUO/kuvvquAFRdZRwAAAAACAAAAAAAQZgAAAAEAACAAAADDfivyRO1Dc7AKeYv/4EUQ8h0lZ9o7/9nlv36vheFSmgAAAAAOgAAAAAIAACAAAAAGdnkVA4KBhauhS1MBlX/nOV65KIp0DxNj7Nb6MfPCHJAAAAAJ1ABQ8yR1BuScF2pqS1cuXsMndGhpedc8s/cIsYVXWjtN/y5/57RhDnMPw9Diyi6ipi0cv02MmCITkuT7yC3uRXveCwRjCOy6oHVoj3eXuJc0CRieqQn4OMLetKiav8nSywZUwL2THErMjNzVZcXJZybzO743VeXiz6SNnwcpX+wMQWe8WMLMIsr+4UCuJLtAAAAAcYg86pWyKKvQrou+gLSI2kQ64Bzn9q5at3FjZLEI8pCVUuTUG6RjF08gDzdX5WhSPOstICmnw8nEx7Ctohfh+g==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAWPWZBGUO/kuvvquAFRdZRwAAAAACAAAAAAAQZgAAAAEAACAAAACnw7K8v5VTyck0pZI80IbjZnn28PhU8Z+bTLzKXjS6tAAAAAAOgAAAAAIAACAAAAByDNQS+DLhwpjny/VfIyG20WHzgmHjO0ppzEVH3ByzxZAAAABdlT2Hu4ascCNDZHiMvMWqasqd9dAQ/nKopUMQGlBLxE/mvtMkVSvu4H7mEd6cTwdt5f4b4z3CFBF84v9AvgSZmzNVqdUElCgASHTwsSf8l8xKV0NBXvTD7uV/B/KK5E08u4rI+5Ags8TvkeaVCdBdABg7RbB8QIP81Z0HDtp4RnXBl+iFYvfHxurJGU+3ss1AAAAAzIPGnSrfEFt8vJ/IBJAbVLsGysVi/DT+MtfYHhOuRkKKqb2PVNYeI51IG2K0Ba91+u7AYColajp8wFMYYF2a+A==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -218,7 +218,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=sqlservervier.f4.htw-berlin.de;User ID=u568783;Initial Catalog=Data_DS2;Provider=MSOLEDBSQL.1;Application Name=SSIS-Uebungsblatt4_2.0-{C719CE18-E017-4F97-B20A-EDFFCCAA3388}sqlservervier.f4.htw-berlin.de.Data_DS2.u568783;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=sqlservervier.f4.htw-berlin.de;User ID=u568783;Initial Catalog=Data_DS2;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Uebungsblatt4_2.0-{C719CE18-E017-4F97-B20A-EDFFCCAA3388}sqlservervier.f4.htw-berlin.de.Data_DS2.u568783;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -367,7 +367,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=sqlservervier.f4.htw-berlin.de;User ID=u568783;Initial Catalog=Data_DS1;Provider=MSOLEDBSQL.1;Application Name=SSIS-Uebungsblatt4_2.0-{B76DBC62-6685-45A8-8D6C-7D006EC86FFF}sqlservervier.f4.htw-berlin.de.Data_DS1.u568783;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=sqlservervier.f4.htw-berlin.de;User ID=u568783;Initial Catalog=Data_DS1;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Uebungsblatt4_2.0-{B76DBC62-6685-45A8-8D6C-7D006EC86FFF}sqlservervier.f4.htw-berlin.de.Data_DS1.u568783;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -515,10 +515,10 @@
                 <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">23</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">43</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{4BC8D1E8-9DB5-449A-828E-34747D8E20E2}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B60F5617-CFCB-40C3-981B-20DA5B234AEE}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

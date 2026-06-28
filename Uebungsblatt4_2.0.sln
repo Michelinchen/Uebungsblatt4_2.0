@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{589D1FFE-166C-4DB7-A37F-D0EB998FBE68}"
 	ProjectSection(SolutionItems) = preProject
 		SQLBefehl_KundenDim.txt = SQLBefehl_KundenDim.txt
+		SQLBefehl_KundenDim2.txt = SQLBefehl_KundenDim2.txt
 	EndProjectSection
 EndProject
 Global
