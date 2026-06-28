@@ -11,9 +11,198 @@
   DTS:LocaleID="1031"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionGUID="{9415A291-6482-4122-8D3B-E38203CA6AF9}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{E85CAD84-8DF4-4651-82DB-804CC01EC671}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:Variables />
-  <DTS:Executables />
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sqlservervier.f4.htw-berlin.de.u598822.u598822]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0DE57F96-1A01-4C25-A161-FF471925C80E}"
+      DTS:ObjectName="sqlservervier.f4.htw-berlin.de.u598822.u598822">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=sqlservervier.f4.htw-berlin.de;User ID=u598822;Initial Catalog=u598822;Provider=MSOLEDBSQL.1;Auto Translate=False;Application Name=SSIS-Package3-{0DE57F96-1A01-4C25-A161-FF471925C80E}sqlservervier.f4.htw-berlin.de.u598822.u598822;Use Encryption for Data=False;Trust Server Certificate=True;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8PxCWwOYAkWFK0SvHbC4hwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADrPN8VO3vFg6hPgzYsrzeb76JOTO1UC1Pb6pPwIs2ZvQAAAAAOgAAAAAIAACAAAACYXXWqgJmC0U46FldrGHYgkIUdJsRVOFNfo+/d7ZDCgCAAAAC4GvYoTnvvU8JYFb5eOwfFrc//G7CqdQHfyE+ISvgCOkAAAAB9K0auWkC5WTnRD05gpwrfUf0yxBvCt2UVX4GUINq2Awmm7jhbuLPoeqNux7xlngfylTXHoLiGGtyn472Y9o5A</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{75D4A11B-DD7B-4B04-9AA3-6C681F8338C2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentDate">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/2000</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{59919F22-4AE4-4692-8653-412E8E054BEE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MaxDate">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/2000</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E2FCAA51-8FB3-4B87-AAFF-D2EEB9CFDC2B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MinDate">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/2000</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task Get MinMax Date"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D9DE6246-291B-43CF-91BB-FD6B7C9EA803}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task Get MinMax Date"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0DE57F96-1A01-4C25-A161-FF471925C80E}"
+          SQLTask:SqlStatementSource="SELECT&#xA;    MIN(OrderDate) AS MinDate,&#xA;    MAX(OrderDate) AS MaxDate&#xA;FROM (&#xA;    SELECT DATEADD(YEAR, 2, OrderDate) AS OrderDate&#xA;    FROM Data_DS1.Sales.SalesOrderHeader&#xA;&#xA;    UNION ALL&#xA;&#xA;    SELECT ORDERDATE AS OrderDate&#xA;    FROM Data_DS2.dbo.ORDERS&#xA;) x;"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::MinDate" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="1"
+            SQLTask:DtsVariableName="User::MaxDate" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\For Loop Container Generate DimDate"
+      DTS:AssignExpression="@[User::CurrentDate] = DATEADD(&quot;day&quot;, 1, @[User::CurrentDate])"
+      DTS:CreationName="STOCK:FORLOOP"
+      DTS:Description="For Loop Container"
+      DTS:DTSID="{33822970-DFDA-4B5B-8CF9-68DC86DB23E3}"
+      DTS:EvalExpression="@[User::CurrentDate] &lt;= @[User::MaxDate]"
+      DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@[User::CurrentDate] = @[User::MinDate]"
+      DTS:LocaleID="-1"
+      DTS:MaxConcurrent="1"
+      DTS:ObjectName="For Loop Container Generate DimDate">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container Generate DimDate\Execute SQL Task Insert Current Date"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1B78724A-C883-4217-BEE9-50F2E1A53FAB}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task Insert Current Date"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0DE57F96-1A01-4C25-A161-FF471925C80E}"
+              SQLTask:SqlStatementSource="DECLARE @d DATE = ?;&#xA;&#xA;IF NOT EXISTS (&#xA;    SELECT 1&#xA;    FROM dbo.DimDate&#xA;    WHERE FullDate = @d&#xA;)&#xA;BEGIN&#xA;    INSERT INTO dbo.DimDate (&#xA;        DateKey,&#xA;        FullDate,&#xA;        Day,&#xA;        Month,&#xA;        MonthName,&#xA;        Quarter,&#xA;        Year,&#xA;        WeekOfYear,&#xA;        DayOfWeek&#xA;    )&#xA;    VALUES (&#xA;        CONVERT(INT, FORMAT(@d, 'yyyyMMdd')),&#xA;        @d,&#xA;        DAY(@d),&#xA;        MONTH(@d),&#xA;        DATENAME(MONTH, @d),&#xA;        DATEPART(QUARTER, @d),&#xA;        YEAR(@d),&#xA;        DATEPART(ISO_WEEK, @d),&#xA;        DATEPART(WEEKDAY, @d)&#xA;    );&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::CancelEvent"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DAF6F558-F769-407A-836E-BFB4062E8147}"
+      DTS:From="Package\Execute SQL Task Get MinMax Date"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\For Loop Container Generate DimDate" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="259,42"
+          Id="Package\Execute SQL Task Get MinMax Date"
+          TopLeft="209,130" />
+        <NodeLayout
+          Size="267,42"
+          Id="Package\For Loop Container Generate DimDate\Execute SQL Task Insert Current Date"
+          TopLeft="29,33" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="329,145"
+          Size="329,188"
+          Id="Package\For Loop Container Generate DimDate"
+          TopLeft="212,227" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="338.5,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38,55"
+              Start="0,0"
+              End="38,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.5"
+                    Point2="0,27.5"
+                    Point3="4,27.5" />
+                  <mssgle:LineSegment
+                    End="34,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34,27.5"
+                    Point2="38,27.5"
+                    Point3="38,31.5" />
+                  <mssgle:LineSegment
+                    End="38,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
