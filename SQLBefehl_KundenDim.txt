@@ -1,0 +1,28 @@
+erstelle zuerst eine Staging_Individual Tabelle in deiner Datenbank mit folgendem Befehl 
+
+
+CREATE TABLE Staging_Individual (
+    -- Technischer Schlüssel
+    StagingID               INT IDENTITY(1,1) PRIMARY KEY,
+
+    -- Business Keys aus der Quelle
+    CustomerID              INT,
+
+    -- Personendaten
+    FirstName               NVARCHAR(50),
+    LastName                NVARCHAR(50),
+
+    -- Rohes XML 
+    Demographics            XML NULL,
+
+    -- Extrahierte Werte aus dem XML (durch XQuery befüllt)
+    BirthDate               DATE NULL,
+    MaritalStatus           CHAR(1) NULL,
+    YearlyIncome            NVARCHAR(50) NULL,
+    Gender                  CHAR(1) NULL,
+    TotalChildren           TINYINT NULL,
+
+    -- Metadaten
+    SourceSystem            NVARCHAR(20) DEFAULT 'DS1',
+    LoadDate                DATETIME2 DEFAULT GETDATE()
+);
