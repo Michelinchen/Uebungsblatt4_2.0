@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="sqlservervier.f4.htw-berlin.de.Data_DS2.u568783"
+  DTS:DTSID="{C719CE18-E017-4F97-B20A-EDFFCCAA3388}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=sqlservervier.f4.htw-berlin.de;User ID=u568783;Initial Catalog=Data_DS2;Provider=MSOLEDBSQL.1;Application Name=SSIS-Uebungsblatt4_2.0-{C719CE18-E017-4F97-B20A-EDFFCCAA3388}sqlservervier.f4.htw-berlin.de.Data_DS2.u568783;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAWPWZBGUO/kuvvquAFRdZRwAAAAACAAAAAAAQZgAAAAEAACAAAACqSisB9YiTr4ag2tS7ANso0s1wYrOTt8OQIx2xJs4D3AAAAAAOgAAAAAIAACAAAACdokSfzSFhP3YmqT4jRGTI40E4SpcaQEX1tbqiLBORloAAAACchPcLIOeC0skytONLVIJoneKPMlSji0rqv0DzwjCwKu6AueaSm1hAevOiKgna4yMz2wfEAJZgSKcorG3q9VbgcygGw83dWZDUZhrZXhrgdtZYFoEvEE9sfDRrWoCYsXuApyW4FeoQuX9IgleGJUeLMxI0zWUeJQG1ZDmu7FgmC0AAAAAbgxJ55jnlutHjlKIB4Qjrrwg4V0vwROWQGmTYRE3OL/CU4N7GZmHunCCrOZw68XukS8tsFz1vYvTLp3BVvYnn</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
