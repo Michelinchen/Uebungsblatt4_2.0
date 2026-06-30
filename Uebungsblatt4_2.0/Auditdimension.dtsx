@@ -11,25 +11,25 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="Auditdimension"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{0448FF36-8A65-433E-A297-F460B6BD0C1C}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{687C2185-3216-42D7-9CBF-2D73D1BFC3F4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[sqlservervier.f4.htw-berlin.de.u598822.u598822]"
+      DTS:refId="Package.ConnectionManagers[sqlservervier.f4.htw-berlin.de.u600971.u600971]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{7BFA7300-09DF-4A6B-862B-E3194EEA36E8}"
-      DTS:ObjectName="sqlservervier.f4.htw-berlin.de.u598822.u598822">
+      DTS:ObjectName="sqlservervier.f4.htw-berlin.de.u600971.u600971">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=sqlservervier.f4.htw-berlin.de;User ID=u598822;Initial Catalog=u598822;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Auditdimension-{7BFA7300-09DF-4A6B-862B-E3194EEA36E8}sqlservervier.f4.htw-berlin.de.u598822.u598822;Use Encryption for Data=False;Trust Server Certificate=True;">
+          DTS:ConnectionString="Data Source=sqlservervier.f4.htw-berlin.de;User ID=u600971;Initial Catalog=u600971;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Auditdimension-{7BFA7300-09DF-4A6B-862B-E3194EEA36E8}sqlservervier.f4.htw-berlin.de.u598822.u598822;Use Encryption for Data=False;Trust Server Certificate=True;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8PxCWwOYAkWFK0SvHbC4hwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD5upp/W3oZzAElztZSE3+uGigS17sPCP9QYQAS7hEHLgAAAAAOgAAAAAIAACAAAAA6wnvNHx1X9Hhc8JwULe0S0TM2w3BYPGYI1L3yjTQEdxAAAABcvhbJaTM39I5v87RVJ07HQAAAAEPH9wmQunh38MWguwOE3G2kSAKocx8P03CElcg0n0A9fNS0egrNGHCZQt1+cBpTyCGDXfrsZ4HBLaeE8B+Lp+Q</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8PxCWwOYAkWFK0SvHbC4hwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACnFfez4XCSenq8FkrRnDitiknvnMNT9Y/odxbsArm1MgAAAAAOgAAAAAIAACAAAACq46vpJJ/Qe2QdHhG1GYk4t7yUH5o1WQFWDLFQgX6e6BAAAAD6BU/ZcQ/USBLAHbwTJ/dyQAAAAMxuNmhhl98fchmTsM4hNaZyB632mGE2ahkFAkUdXO/i0PCR+T173fy5oNvBLna0JIt2bknOKuDqzoo6Pps+O3g</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
